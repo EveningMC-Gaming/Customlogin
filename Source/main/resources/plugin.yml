@@ -1,0 +1,9 @@
+main: com.eveningmc.customlogin.Customlogin
+name: Customlogin
+authors: [eveninglight, Lexucraft, EveningMC]
+version: 1.2.0
+
+commands:
+  customlogin:
+    description: Main Customlogin Command.
+    aliases: [cl]
