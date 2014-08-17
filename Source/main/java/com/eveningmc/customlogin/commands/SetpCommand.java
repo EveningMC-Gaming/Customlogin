@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import com.eveningmc.customlogin.Customlogin;
 import com.eveningmc.customlogin.utils.Message;
+import com.eveningmc.customlogin.utils.User;
 
 public class SetpCommand
 {
@@ -41,8 +42,8 @@ public class SetpCommand
 						if (args.length > 1)
 						{
 							
-							Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Prefix", Message.toString(args, 2));
-							Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+							User.getConfig(p).set("Messages.Prefix", Message.toString(args, 2));
+							User.save(p);
 							
 						}
 						
@@ -62,8 +63,8 @@ public class SetpCommand
 					if (args.length > 1)
 					{
 						
-						Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Prefix", Message.toString(args, 2));
-						Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+						User.getConfig(p).set("Messages.Prefix", Message.toString(args, 2));
+						User.save(p);
 						
 					}
 					
@@ -85,8 +86,8 @@ public class SetpCommand
 						if (args.length > 1)
 						{
 							
-							Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Login", Message.toString(args, 2));
-							Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+							User.getConfig(p).set("Messages.Login", Message.toString(args, 2));
+							User.save(p);
 							
 						}
 						
@@ -106,8 +107,8 @@ public class SetpCommand
 					if (args.length > 1)
 					{
 						
-						Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Prefix", Message.toString(args, 2));
-						Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+						User.getConfig(p).set("Messages.Login", Message.toString(args, 2));
+						User.save(p);
 						
 					}
 					
@@ -129,8 +130,8 @@ public class SetpCommand
 						if (args.length > 1)
 						{
 							
-							Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Logout", Message.toString(args, 2));
-							Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+							User.getConfig(p).set("Messages.Logout", Message.toString(args, 2));
+							User.save(p);
 							
 						}
 						
@@ -150,8 +151,8 @@ public class SetpCommand
 					if (args.length > 1)
 					{
 						
-						Customlogin.getInstance().getConfiguration().setOverride("userdata/" + p.getUniqueId().toString(), p.getName(), "Messages.Prefix", Message.toString(args, 2));
-						Customlogin.getInstance().getConfiguration().save("userdata/" + p.getUniqueId().toString(), p.getName());
+						User.getConfig(p).set("Messages.Logout", Message.toString(args, 2));
+						User.save(p);
 						
 					}
 					

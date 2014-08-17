@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.eveningmc.customlogin.Customlogin;
 import com.eveningmc.customlogin.utils.Message;
+import com.eveningmc.customlogin.utils.User;
 
 public class onQuit implements Listener
 {
@@ -28,15 +29,13 @@ public class onQuit implements Listener
 		
 		Message.debug("Player left the game : (PLAYER)".replace("(PLAYER)", e.getPlayer().getName()));
 		
-		if((boolean) Customlogin.getInstance().getConfiguration().get("", "settings", "Player-Data"))
+		if ((boolean) Customlogin.getInstance().getConfiguration().get("", "settings", "Player-Data"))
 		{
-			
-			final String uuid = e.getPlayer().getUniqueId().toString();
 			
 			e.setQuitMessage("");
 			
-			final String prefix = (String) plugin.getConfiguration().get("userdata/" + uuid, e.getPlayer().getName(), "Messages.Prefix");
-			final String msg = (String) plugin.getConfiguration().get("userdata/" + uuid, e.getPlayer().getName(), "Messages.Logout");
+			final String prefix = (String) User.getConfig(e.getPlayer()).get("Messages.Prefix");
+			final String msg = (String) User.getConfig(e.getPlayer()).get("Messages.Logout");
 			
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 			{
@@ -59,7 +58,7 @@ public class onQuit implements Listener
 			e.setQuitMessage("");
 			
 			final String prefix = (String) plugin.getConfiguration().get("", "settings", "Messages.Prefix");
-			final String msg = (String) plugin.getConfiguration().get("", "settings", "Messages.Login");
+			final String msg = (String) plugin.getConfiguration().get("", "settings", "Messages.Logout");
 			
 			Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 			{

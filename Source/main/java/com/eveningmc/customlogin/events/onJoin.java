@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import com.eveningmc.customlogin.Customlogin;
 import com.eveningmc.customlogin.utils.Message;
+import com.eveningmc.customlogin.utils.User;
 
 public class onJoin implements Listener
 {
@@ -28,15 +29,13 @@ public class onJoin implements Listener
 		
 		Message.debug("Player joined the game : (PLAYER)".replace("(PLAYER)", e.getPlayer().getName()));
 		
-		if((boolean) Customlogin.getInstance().getConfiguration().get("", "settings", "Player-Data"))
+		if ((boolean) Customlogin.getInstance().getConfiguration().get("", "settings", "Player-Data"))
 		{
-			
-			final String uuid = e.getPlayer().getUniqueId().toString();
 			
 			e.setJoinMessage("");
 			
-			final String prefix = (String) plugin.getConfiguration().get("userdata/" + uuid, e.getPlayer().getName(), "Messages.Prefix");
-			final String msg = (String) plugin.getConfiguration().get("userdata/" + uuid, e.getPlayer().getName(), "Messages.Login");
+			final String prefix = (String) User.getConfig(e.getPlayer()).get("Messages.Prefix");
+			final String msg = (String) User.getConfig(e.getPlayer()).get("Messages.Login");
 			
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 			{
